@@ -1,4 +1,3 @@
-from game.Player import Player
 
 # Displays the parachute and the man as separate lists. Pulls in the missed guesses
 # to remove lines of parachute and returns the death image if required.
@@ -21,9 +20,6 @@ class GameBoard:
             " /|\ ",
             " / \ "
         ]
-
-        # Pulls in the number of missed guesses from the Player class
-        self._missedGuesses = player._missedGuesses()
 
     # Logic that updates the parachute and man lists based on number of missed guesses
     def parachuteUpdate(self):
