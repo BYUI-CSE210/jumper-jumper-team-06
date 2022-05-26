@@ -54,10 +54,7 @@ class gameBoard:
         #turns the list of characters in wordInList variable to a regular string. ex. "apple". this will be used by later methods to determine if guess is correct.
         self._word = "".join(self._wordInList)
 
-# TO-DO!! the following print statements are for testing purposes only... please delete for final program!!!
-        print(self._wordList[self._wordIndex])
-        print(self._blankList[self._wordIndex])
-        print(self._word)
+
 
     #this method returns the current empty word in list form for the game (list)
     def getEmptyWord(self):
@@ -87,9 +84,6 @@ class gameBoard:
                 if( i == letterGuess.lower()):
                     #updates the empty list with the correct guess in the correct index
                     self._blankList[self._wordIndex][index] = i
-
-#TO-DO: The following print statement is for testing purposes only, please remove for final program.                    
-                    print(self._blankList[self._wordIndex])
         #will return a message if the guess is incorrect and it will update the amount of missed guesses.
         else:
             self._missedGuesses += 1
@@ -110,10 +104,3 @@ gameBoard.updateGuess("p")
 
 gameBoard.updateGuess("c")
 """
-
-gameBoard = gameBoard()
-
-gameBoard.pickWord()
-gameBoard.updateGuess("p")
-
-gameBoard.updateGuess("c")
