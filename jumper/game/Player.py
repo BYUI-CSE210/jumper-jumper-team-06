@@ -10,6 +10,9 @@ provide a message for a missed guess while keeping track of number of missed gue
 update and provide the updated list when a correct guess is entered.
 """
 
+"""Minor modifications to get everything running together. 
+-Camden Chadsey
+"""
 class Player:
     
     def __init__(self):
@@ -35,8 +38,6 @@ class Player:
         #word in list form to be used to check guesses
         self._wordInList = list
 
-        #will keep track of missed guesses, is updated when a wrong guess is entered into updateGuess()
-        self._missedGuesses= 0
 
 
     """
@@ -50,19 +51,23 @@ class Player:
 
         #assign the word in list form based on the index generated, this will be used by other methods as well. ex. ["a","p","p","l","e"]
         self._wordInList = self._wordList[self._wordIndex]
+        self._blankInList = self._blankList[self._wordIndex]
 
         #turns the list of characters in wordInList variable to a regular string. ex. "apple". this will be used by later methods to determine if guess is correct.
         self._word = "".join(self._wordInList)
 
 
 
-    #this method returns the current empty word in list form for the game (list)
-    def getEmptyWord(self):
-        return self._blankList[self._wordIndex]
+    #Checks if all letters guessed correctly and returns True when condition met.
+    def winCondition(self):
+        if "-" in self._blankInList:
+            return False
+        else: 
+            return True
 
-    #this returs the current number of missed guesses (int)
-    def getMissedGuesses(self):
-        return self._missedGuesses
+    #displays the blank list
+    def displayBlankList(self):
+        print(self._blankInList)
 
 
     """
@@ -74,20 +79,22 @@ class Player:
     def updateGuess(self,letterGuess):
         
         #check if the letter is found in the word
-        if(letterGuess in self._word):
+        if letterGuess in self._word :
             #keep track of the current index
             index = -1
             #for loop iterating though the items in the wordInList (word in list form) to find where the letter appears
             for i in self._wordInList: 
                 #keeps track of current index to update the blank list
                 index+= 1
-                if( i == letterGuess.lower()):
+                if i == letterGuess.lower():
                     #updates the empty list with the correct guess in the correct index
-                    self._blankList[self._wordIndex][index] = i
+                    self._blankInList[index] = letterGuess
+            #returns True boolean for "self._outcome" in director indicating that the guess was correct.
+            return True
         #will return a message if the guess is incorrect and it will update the amount of missed guesses.
         else:
-            self._missedGuesses += 1
-            return("Letter not in word, try again!")
+            #returns False boolean to indicate the guess was wrong.
+            return False
 
 
 
