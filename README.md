@@ -105,7 +105,7 @@ CLASSES:
 
 Assignments:
 
-	GameBoard : Alvaro
-	Player : Christopher
+	GameBoard : Chris
+	Player : Alvaro
 	Director: Camden
 	Terminal Service : Camden
