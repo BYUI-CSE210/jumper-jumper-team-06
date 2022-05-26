@@ -10,7 +10,7 @@ provide a message for a missed guess while keeping track of number of missed gue
 update and provide the updated list when a correct guess is entered.
 """
 
-class gameBoard:
+class Player:
     
     def __init__(self):
 
@@ -97,10 +97,10 @@ class gameBoard:
 """
 THE FOLLOWING ARE EXAMPLES ON HOW TO INITIATE AND USE SOME METHODS IN THIS CLASS
 
-gameBoard = gameBoard()
+player = Player()
 
-gameBoard.pickWord()
-gameBoard.updateGuess("p")
+player.pickWord()
+player.updateGuess("p")
 
-gameBoard.updateGuess("c")
+player.updateGuess("c")
 """
